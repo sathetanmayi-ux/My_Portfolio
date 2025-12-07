@@ -1,0 +1,3 @@
+{% macro time() %}
+{{ "%d" | format(random() * 10000 | int) }}
+{% endmacro %}

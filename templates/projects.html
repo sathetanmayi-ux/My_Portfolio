@@ -1,88 +1,60 @@
-<nav>
-    <a href="/">Home</a> |
-    <a href="/about">About</a> |
-    <a href="/projects">Projects</a> |
-    <a href="/contact">Contact</a>
-</nav>
-<hr>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>My Portfolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="bg-light">
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
-    <a class="navbar-brand" href="/">My Portfolio</a>
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="/projects">Projects</a></li>
-        <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<div class="container mt-5">
-<h1 class="fw-bold mb-4">My Projects</h1>
-
-<div class="row">
-    <div class="col-md-4">
-        <div class="card shadow-sm">
-            <div class="card-body">
-                <h5 class="card-title">Landmine Detection Vehicle</h5>
-                <p class="card-text">Uses Arduino + ESP32 + GSM for alerts.</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-4">
-        <div class="card shadow-sm">
-            <div class="card-body">
-                <h5 class="card-title">Python Projects</h5>
-                <p class="card-text">Patterns, OOP, functions, searching, sorting, etc.</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
 {% extends "base.html" %}
 {% block content %}
-<h2 class="fw-bold mb-4">Projects</h2>
+<h3 class="fw-bold mb-4">Projects</h3>
 
-<div class="row g-4">
-  <div class="col-md-6">
-    <div class="card project-card animate-pop">
+<div class="mb-3 d-flex gap-2 flex-wrap">
+  <button class="btn btn-sm btn-outline-secondary filter-btn active" data-filter="all">All</button>
+  <button class="btn btn-sm btn-outline-secondary filter-btn" data-filter="embedded">Embedded</button>
+  <button class="btn btn-sm btn-outline-secondary filter-btn" data-filter="mobile">Mobile</button>
+  <button class="btn btn-sm btn-outline-secondary filter-btn" data-filter="web">Web</button>
+</div>
+
+<div class="row g-4" id="projectsGrid">
+  <!-- Project card format -->
+  <div class="col-md-6 project-tile" data-tags="embedded">
+    <div class="card project-card interactive">
       <div class="card-body">
         <h5 class="card-title">Landmine Detection Vehicle</h5>
-        <p class="card-text">Robotics project using Arduino Uno + ESP32. Detects metal/mines and alerts via GSM module.</p>
-        <a href="https://github.com/sathetanmayi-ux" target="_blank" class="card-link">GitHub</a>
+        <p class="card-text text-muted">Robotics using Arduino Uno + ESP32; GSM alerts.</p>
+        <div class="d-flex justify-content-between align-items-center mt-3">
+          <div><span class="badge bg-secondary">C/C++</span> <span class="badge bg-secondary">Arduino</span></div>
+          <div>
+            <button class="btn btn-sm btn-outline-light view-project" data-title="Landmine Detection Vehicle" data-desc="Robotics project using Arduino Uno & ESP32; GSM alerts" data-link="https://github.com/sathetanmayi-ux">View</button>
+            <a href="https://github.com/sathetanmayi-ux" target="_blank" class="btn btn-sm btn-primary">Repo</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="col-md-6">
-    <div class="card project-card animate-pop">
+  <div class="col-md-6 project-tile" data-tags="mobile">
+    <div class="card project-card interactive">
       <div class="card-body">
         <h5 class="card-title">FocusNest (Mobile App)</h5>
-        <p class="card-text">Parental control and focus app built with Java and XML for Android.</p>
-        <a href="https://github.com/sathetanmayi-ux/FocusNest" target="_blank" class="card-link">GitHub</a>
+        <p class="card-text text-muted">Parental control & focus app — Java & XML.</p>
+        <div class="d-flex justify-content-between align-items-center mt-3">
+          <div><span class="badge bg-secondary">Java</span></div>
+          <div>
+            <button class="btn btn-sm btn-outline-light view-project" data-title="FocusNest" data-desc="Parental control & focus app (Android)" data-link="https://github.com/sathetanmayi-ux/FocusNest">View</button>
+            <a href="https://github.com/sathetanmayi-ux/FocusNest" target="_blank" class="btn btn-sm btn-primary">Repo</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Add more project cards similarly -->
+  <!-- add more cards here -->
+</div>
+
+<!-- reuse modal -->
+<div id="projectModal" class="project-modal">
+  <div class="project-modal-card">
+    <button class="close-modal">&times;</button>
+    <h4 id="pm-title"></h4>
+    <p id="pm-desc" class="text-muted"></p>
+    <div class="mt-3">
+      <a id="pm-link" class="btn btn-primary" target="_blank">Open Repo</a>
+    </div>
+  </div>
 </div>
 {% endblock %}
-
-
