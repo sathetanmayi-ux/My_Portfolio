@@ -1,5 +1,4 @@
 from flask import Flask, render_template
-from livereload import Server
 import os
 
 app = Flask(__name__, static_folder="static", template_folder="templates")
@@ -28,10 +27,4 @@ def resume():
     return send_from_directory(directory=os.path.join(app.root_path, 'static'),path='Tanmayi_resume.pdf', as_attachment=True)
 
 if __name__ == "__main__":
-    server = Server(app)
-    server.watch('templates/*.html')
-    server.watch('static/css/*.css')
-    server.watch('static/js/*.js')
-    server.watch('*.py')
-    server.serve(debug=True, host='127.0.0.1', port=5000)
-    app.run(debug=True)
+       app.run(debug=True)
