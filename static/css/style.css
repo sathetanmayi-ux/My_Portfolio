@@ -1,0 +1,71 @@
+:root{
+  --grad1: #6a11cb;
+  --grad2: #2575fc;
+  --text-light: #ffffff;
+  --text-dark: #1f2937;
+}
+
+*{box-sizing:border-box}
+body,html{height:100%;font-family:'Inter',system-ui,Arial,sans-serif;margin:0}
+.navbar-ghost{background:transparent !important}
+.main-content{min-height:70vh}
+
+/* Gradient background */
+#page-root.theme-light {
+  background: linear-gradient(135deg, rgba(106,17,203,0.12) 0%, rgba(37,117,252,0.08) 100%), #f7f9ff;
+  color: var(--text-dark);
+}
+#page-root.theme-dark {
+  background: linear-gradient(135deg, var(--grad1), var(--grad2));
+  color: var(--text-light);
+}
+
+/* Gradient text heading */
+.gradient-text {
+  background: linear-gradient(90deg,var(--grad1),var(--grad2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Profile */
+.profile-img{
+  width:160px;
+  height:160px;
+  object-fit:cover;
+  border-radius:50%;
+  border:6px solid rgba(255,255,255,0.06);
+  box-shadow: 0 10px 30px rgba(16,24,40,0.08);
+}
+
+/* Cards */
+.project-card, .card {
+  border-radius: 12px;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.project-card:hover { transform: translateY(-6px); box-shadow: 0 10px 30px rgba(16,24,40,0.12); }
+
+/* Badges */
+.skill-badge{
+  display:inline-block;
+  background: linear-gradient(90deg,var(--grad1),var(--grad2));
+  color: white;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: .9rem;
+}
+
+/* Buttons in dark theme adjust */
+#page-root.theme-dark .btn-outline-light { color: rgba(255,255,255,0.9); border-color: rgba(255,255,255,0.2); }
+#page-root.theme-dark .btn-primary { background: rgba(255,255,255,0.12); border: none; color: white; }
+
+/* Simple animations */
+@keyframes popIn { from { transform: translateY(12px); opacity:0 } to { transform: translateY(0); opacity:1 } }
+.animate-pop { animation: popIn .6s ease both; }
+
+/* Footer */
+.footer { background: transparent; }
+
+/* Responsive tweaks */
+@media (max-width: 767px) {
+  .profile-img { width:120px; height:120px; }
+}

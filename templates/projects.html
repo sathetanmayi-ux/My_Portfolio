@@ -1,0 +1,88 @@
+<nav>
+    <a href="/">Home</a> |
+    <a href="/about">About</a> |
+    <a href="/projects">Projects</a> |
+    <a href="/contact">Contact</a>
+</nav>
+<hr>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="/">My Portfolio</a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="/projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-5">
+<h1 class="fw-bold mb-4">My Projects</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Landmine Detection Vehicle</h5>
+                <p class="card-text">Uses Arduino + ESP32 + GSM for alerts.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Python Projects</h5>
+                <p class="card-text">Patterns, OOP, functions, searching, sorting, etc.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+{% extends "base.html" %}
+{% block content %}
+<h2 class="fw-bold mb-4">Projects</h2>
+
+<div class="row g-4">
+  <div class="col-md-6">
+    <div class="card project-card animate-pop">
+      <div class="card-body">
+        <h5 class="card-title">Landmine Detection Vehicle</h5>
+        <p class="card-text">Robotics project using Arduino Uno + ESP32. Detects metal/mines and alerts via GSM module.</p>
+        <a href="https://github.com/sathetanmayi-ux" target="_blank" class="card-link">GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card project-card animate-pop">
+      <div class="card-body">
+        <h5 class="card-title">FocusNest (Mobile App)</h5>
+        <p class="card-text">Parental control and focus app built with Java and XML for Android.</p>
+        <a href="https://github.com/sathetanmayi-ux/FocusNest" target="_blank" class="card-link">GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add more project cards similarly -->
+</div>
+{% endblock %}
+
+
